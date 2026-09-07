@@ -82,14 +82,16 @@
 <body>
 
     <!-- Loading Screen -->
+  <!-- Loading Screen -->
     <div id="loading-screen">
-        <svg class="boopa-svg" viewBox="0 0 400 150">
-            <!-- 
-              Note: This path represents the vector outline of your "Boopa" logo text. 
-              You can fine-tune or replace this path data based on your exact SVG vectors.
-            -->
-            <path class="boopa-path" d="M40,100 C30,100 25,90 25,75 C25,50 50,40 65,55 C75,65 75,85 60,95 C45,105 30,95 35,80 C40,65 60,45 80,45 C95,45 105,55 105,75 C105,95 95,105 80,105 M130,60 L130,90 M130,50 L130,52 M160,60 C145,60 135,75 135,90 C135,105 145,120 160,120 C175,120 185,105 185,90 C185,75 175,60 160,60 Z M160,70 C168,70 173,80 173,90 C173,100 168,110 160,110 C152,110 147,100 147,90 C147,80 152,70 160,70 Z M210,60 C195,60 185,75 185,90 C185,105 195,120 210,120 C225,120 235,105 235,90 C235,75 225,60 210,60 Z M210,70 C218,70 223,80 223,90 C223,100 218,110 210,110 C202,110 197,100 197,90 C197,80 202,70 210,70 Z M255,60 L245,120 M255,60 L275,120 M250,95 L270,95"></path>
-        </svg>
+        <div class="logo-container">
+            <!-- Cursive B with drawing/stroke animation -->
+            <svg class="letter-svg" viewBox="0 0 100 120">
+                <path class="draw-path" d="M30,100 C20,100 15,90 15,75 C15,50 40,40 55,55 C65,65 65,85 50,95 C35,105 20,95 25,80 C30,65 50,45 70,45 C85,45 95,55 95,75 C95,95 85,105 70,105" />
+            </svg>
+            <!-- Clean 'oopa' text that fades and slides in smoothly -->
+            <span class="fade-text">OOPA</span>
+        </div>
     </div>
 
     <!-- Main Website Content -->
