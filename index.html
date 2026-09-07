@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boopa Loading Screen</title>
+    <style>
+        /* Reset and layout */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #3b6982; /* Matches your image background tone */
+            font-family: sans-serif;
+            overflow: hidden;
+        }
+
+        /* Loading Screen Container */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #2c5267; /* Darker tone for loader overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        /* Apple-style drawing animation */
+        .boopa-svg {
+            width: 300px;
+            height: auto;
+        }
+
+        .boopa-path {
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 4px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            /* Dash setup: length of path needs to match or exceed total path length */
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            animation: drawLogo 3.5s ease-in-out forwards;
+        }
+
+        /* Keyframes for drawing effect and final fade-in fill */
+        @keyframes drawLogo {
+            0% {
+                stroke-dashoffset: 600;
+                fill: transparent;
+            }
+            70% {
+                stroke-dashoffset: 0;
+                fill: transparent;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                fill: #ffffff; /* Fills in solid white at the end just like Apple's logo */
+            }
+        }
+
+        /* Class added via JS to hide loader */
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Main website content styling */
+        #main-content {
+            padding: 40px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <svg class="boopa-svg" viewBox="0 0 400 150">
+            <!-- 
+              Note: This path represents the vector outline of your "Boopa" logo text. 
+              You can fine-tune or replace this path data based on your exact SVG vectors.
+            -->
+            <path class="boopa-path" d="M40,100 C30,100 25,90 25,75 C25,50 50,40 65,55 C75,65 75,85 60,95 C45,105 30,95 35,80 C40,65 60,45 80,45 C95,45 105,55 105,75 C105,95 95,105 80,105 M130,60 L130,90 M130,50 L130,52 M160,60 C145,60 135,75 135,90 C135,105 145,120 160,120 C175,120 185,105 185,90 C185,75 175,60 160,60 Z M160,70 C168,70 173,80 173,90 C173,100 168,110 160,110 C152,110 147,100 147,90 C147,80 152,70 160,70 Z M210,60 C195,60 185,75 185,90 C185,105 195,120 210,120 C225,120 235,105 235,90 C235,75 225,60 210,60 Z M210,70 C218,70 223,80 223,90 C223,100 218,110 210,110 C202,110 197,100 197,90 C197,80 202,70 210,70 Z M255,60 L245,120 M255,60 L275,120 M250,95 L270,95"></path>
+        </svg>
+    </div>
+
+    <!-- Main Website Content -->
+    <div id="main-content">
+        <h1>Welcome to Boopa</h1>
+        <p>Your website content loads smoothly right after the animation finishes!</p>
+    </div>
+
+    <script>
+        // Hide loading screen once the window has fully loaded
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loading-screen');
+                loader.classList.add('fade-out');
+            }, 3000); // Keeps the animation playing for 3 seconds before fading
+        });
+    </script>
+</body>
+</html>
